@@ -39,4 +39,6 @@ Home: /better-place/john (create /better-place before if needed)
 6. Install Terraform CLI
 
 
+#### Let's get started
 
+- 
