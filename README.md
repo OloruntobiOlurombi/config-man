@@ -106,4 +106,30 @@ touch setup_machine.yml
         mode: 0755
 ```
 
+- Let's create another file called `nice-script.sh`. The aim of this script is to lists all mounted filesystems. I used the `df` command with the `-h` option to display the mounted filesystems in a human-readable format.
 
+```
+touch nice-script.sh
+```
+- Edit and save the below content to the file called `nice-script.sh` on the local machine. This file will be copied to the remote machine as part of the playbook execution and will be available in each new user's home directory.
+
+ ```
+#!/bin/bash
+
+df -h
+```
+
+- Next I had to update the permissions of the private key file on my local machine by running the following command:
+  
+```
+chmod 400 /Users/mac/Downloads/Appsilon-task.pem
+```
+This coomand restricts the permissions of the key file to be readable only the owner.
+
+- Save the playbook file.
+- Run the playbook using the following command:
+  
+```
+ansible-playbook -i <EC2-INSTANCE-IP>, -u <SSH-USERNAME> --private-key <PATH-TO-PRIVATE-KEY> setup_machine.yml
+```
+Please note: Replace <EC2-INSTANCE-IP> with the public IP address of your EC2 instance, <SSH-USERNAME> with the SSH username for your Linux distribution (e.g., "ubuntu" for Ubuntu), and <PATH-TO-PRIVATE-KEY> with the path to the private key associated with your EC2 instance.
