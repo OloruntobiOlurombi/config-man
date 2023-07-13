@@ -43,7 +43,7 @@ Home: /better-place/john (create /better-place before if needed)
 
 - Create a playbook file (setup_machine.yml) and edit with the following content:
 ```
-setup_machine.yml
+touch setup_machine.yml
 ```
 
 ```
