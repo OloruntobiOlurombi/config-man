@@ -23,8 +23,20 @@
      ```
      sudo apt install ansible -y
      ```
+- Now that I am done with my configuration it is time to create a playbook wwhich do 
+the following:
 
-
+1. Each new user should have a script called nice-script.sh in their home directory (hint: use "skeleton directory"). The script should list all mounted filesystems.
+2. Create the script with the correct command (locally)
+3. Copy the script to the remote machine into the correct directory Creates a user with:
+ * Username: john
+Home: /better-place/john (create /better-place before if needed)
+* User ID: 1234
+4.User john should be able to run the following command with sudo without a need to provide his password: whoami
+5. Install packages:
+* Tmux
+* vim
+6. Install Terraform CLI
 
 
 
