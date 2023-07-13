@@ -133,3 +133,5 @@ This coomand restricts the permissions of the key file to be readable only the o
 ansible-playbook -i <EC2-INSTANCE-IP>, -u <SSH-USERNAME> --private-key <PATH-TO-PRIVATE-KEY> setup_machine.yml
 ```
 Please note: Replace <EC2-INSTANCE-IP> with the public IP address of your EC2 instance, <SSH-USERNAME> with the SSH username for your Linux distribution (e.g., "ubuntu" for Ubuntu), and <PATH-TO-PRIVATE-KEY> with the path to the private key associated with your EC2 instance.
+
+
