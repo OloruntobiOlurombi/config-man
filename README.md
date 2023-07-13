@@ -47,4 +47,63 @@ setup_machine.yml
 ```
 
 ```
+---
+- name: Set up new machine
+  hosts: all
+  become: true
+  tasks:
+    - name: Create directory for John
+      file:
+        path: /better-place/john
+        state: directory
+
+    - name: Copy nice-script.sh to skeleton directory
+      copy:
+        src: nice_script.sh
+        dest: /etc/skel/nice-script.sh
+        mode: 0755
+
+    - name: Create user John
+      user:
+        name: john
+        home: /better-place/john
+        uid: 1234
+
+    - name: Allow John to run 'whoami' with sudo without password
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^john'
+        line: 'john ALL=(ALL) NOPASSWD: /usr/bin/whoami'
+
+    - name: Install Tmux and Vim
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - tmux
+        - vim
+
+    - name: Install unzip package
+      apt:
+        name: unzip
+        state: present
+
+    - name: Download Terraform CLI
+      get_url:
+        url: "https://releases.hashicorp.com/terraform/0.15.4/terraform_0.15.4_linux_amd64.zip"
+        dest: "/tmp/terraform.zip"
+        mode: 0644
+
+    - name: Extract Terraform CLI
+      command: unzip -o /tmp/terraform.zip -d /usr/local/bin
+
+    - name: Set ownership and permissions for Terraform CLI
+      file:
+        path: "/usr/local/bin/terraform"
+        owner: root
+        group: root
+        mode: 0755
+```
+
 
