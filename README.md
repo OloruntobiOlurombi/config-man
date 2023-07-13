@@ -41,4 +41,10 @@ Home: /better-place/john (create /better-place before if needed)
 
 #### Let's get started
 
-- 
+- Create a playbook file (setup_machine.yml) and edit with the following content:
+```
+setup_machine.yml
+```
+
+```
+
