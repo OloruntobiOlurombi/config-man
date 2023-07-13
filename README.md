@@ -134,4 +134,6 @@ ansible-playbook -i <EC2-INSTANCE-IP>, -u <SSH-USERNAME> --private-key <PATH-TO-
 ```
 Please note: Replace <EC2-INSTANCE-IP> with the public IP address of your EC2 instance, <SSH-USERNAME> with the SSH username for your Linux distribution (e.g., "ubuntu" for Ubuntu), and <PATH-TO-PRIVATE-KEY> with the path to the private key associated with your EC2 instance.
 
+<img width="528" alt="Screenshot 2023-07-13 at 12 44 20 AM" src="https://github.com/OloruntobiOlurombi/config-man/assets/40290711/03377fe9-bf83-40a6-a1f9-fc048b0b5e3f">
+
 
